@@ -1,3 +1,5 @@
 # Grammar
 
-A parser parser for C. Work in progress.
+A parser parser for C (WIP).
+
+This library allows you to create parsers in C using a concise context-free-grammar notation.
