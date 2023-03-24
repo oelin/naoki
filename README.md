@@ -24,28 +24,35 @@ Generated parser code.
 
 ```c
 #include "limbo.h"
-#include <stdlib.h>
 
-Tree *Expression = Future();
+// Variables.
 
-Tree *Proposition = Match("[A-Z");
+Variable(Proposition);
+Variable(UnaryOperator);
+Variable(BinaryOperator);
+Variable(UnaryExpression);
+Variable(BinaryExpression);
+Variable(Expression);
 
-Tree *UnaryOperator = Match("¬");
+// Production rules.
 
-Tree *BinaryOperator = Or(
+Production(Proposition, Match("[A-Z"));
+Production(UnaryOperator, Match("¬"));
+
+Production(BinaryOperator, Or(
   Match("^"),
   Or(
     Match("v"),
     Match(">")
   )
-);
+));
 
-Tree *UnaryExpression = And(
+Production(UnaryExpression, And(
   UnaryOperator,
   Expression,
-);
+));
 
-Tree *BinaryExpression = And(
+Production(BinaryExpression, And(
   Match("\\("),
   And(
     Expression,
@@ -57,9 +64,9 @@ Tree *BinaryExpression = And(
       )
     )
   )
-);
+));
 
-setFuture(Expression, Or(
+Production(Expression, Or(
   Proposition,
   Or(
     UnaryExpression,
