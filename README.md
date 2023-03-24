@@ -19,7 +19,7 @@ naoki path/to/grammar.txt
 
 ## Example
 
-A grammar for propositional logic.
+Define a grammar.
 
 ```py
 # logic.txt
@@ -36,13 +36,13 @@ Expression       > Proposition
                  | BinaryExpression
 ```
 
-Compile the grammar with Naoki.
+Compile it.
 
 ```sh
 $ naoki logic.txt
 ```
 
-Result.
+Congratulations, you now have a parser 🥳.
 
 ```sh
 generated/
@@ -105,7 +105,7 @@ Production(Expression, Or(
 ));
 ```
 
-The parser can then be used via the `parse` macro.
+Try it out on some strings.
 
 ```c
 #include "generated/grammar.h"
