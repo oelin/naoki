@@ -1,6 +1,6 @@
 # Naoki
 
-An elegant parser generator for C. WIP.
+A parser generator for C. WIP.
 
 
 ## Installation
