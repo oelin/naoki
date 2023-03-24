@@ -55,4 +55,4 @@ void treeDeconstruct(Tree *tree) {
 }
 
 
-[grammar]
+{{grammar}}
