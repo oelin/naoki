@@ -26,7 +26,7 @@ Generated parser code.
 #include "limbo.h"
 #include <stdlib.h>
 
-Tree *Expression = Promise();
+Tree *Expression = Future();
 
 Tree *Proposition = Match("[A-Z");
 
@@ -59,16 +59,11 @@ Tree *BinaryExpression = And(
   )
 );
 
-resolvePromise(Expression, Or(
+setFuture(Expression, Or(
   Proposition,
   Or(
     UnaryExpression,
     BinaryExpression
   )
 ));
-
-
-Tree *parse(char *string) {
-  return parseTree(Expression, Parse(string, NULL));
-}
 ```
