@@ -42,7 +42,7 @@ Compile the grammar with Naoki.
 $ naoki logic.txt
 ```
 
-Generated parser.
+Result.
 
 ```sh
 generated/
