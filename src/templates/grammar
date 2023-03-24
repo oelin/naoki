@@ -1,3 +1,5 @@
+// grammar.h
+
 #pragma once
 #include <stdlib.h>
 
@@ -57,5 +59,6 @@ void treeDeconstruct(Tree *tree) {
         if (tree->left) treeDeconstruct(tree->left);
         if (tree->right) treeDeconstruct(tree->right);
 }
+
 
 [grammar]
