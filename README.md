@@ -53,6 +53,7 @@ generated/grammar.h
 ```c
 // generated/grammar.h
 
+#pragma once
 #include "lib.h"
 
 // Variables.
