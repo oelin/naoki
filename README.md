@@ -63,40 +63,52 @@ Variable(Expression);
 Production(Proposition, Match("[A-Z"));
 Production(UnaryOperator, Match("¬"));
 
-Production(BinaryOperator, Or(
-  Match("\\^"),
+Production(
+  BinaryOperator, 
   Or(
-    Match("v"),
-    Match(">")
+    Match("\\^"),
+    Or(
+      Match("v"),
+      Match(">")
+    )
   )
-));
+);
 
-Production(UnaryExpression, And(
-  UnaryOperator,
-  Expression
-));
-
-Production(BinaryExpression, And(
-  Match("\\("),
+Production(
+  UnaryExpression, 
   And(
-    Expression,
+    UnaryOperator,
+    Expression
+  )
+);
+
+Production(
+  BinaryExpression, 
+  And(
+    Match("\\("),
     And(
-      BinaryOperator,
+      Expression,
       And(
-        Expression,
-        Match("\\)")
+        BinaryOperator,
+        And(
+          Expression,
+          Match("\\)")
+        )
       )
     )
   )
-));
+);
 
-Production(Expression, Or(
-  Proposition,
+Production(
+  Expression, 
   Or(
-    UnaryExpression,
-    BinaryExpression
+    Proposition,
+    Or(
+      UnaryExpression,
+      BinaryExpression
+    )
   )
-));
+);
 ```
 
 Try it on some strings.
