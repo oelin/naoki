@@ -57,3 +57,5 @@ void treeDeconstruct(Tree *tree) {
         if (tree->left) treeDeconstruct(tree->left);
         if (tree->right) treeDeconstruct(tree->right);
 }
+
+[grammar]
