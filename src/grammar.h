@@ -2,27 +2,37 @@
 
 
 typedef enum {
-        GrammarTypeProposition,
-        GrammarTypeConjunction,
-        GrammarTypeDisjunction,
-        GrammarTypeImplication
-} GrammarType;
+        TreeTypeProposition,
+        TreeTypeConjunction,
+        TreeTypeDisjunction,
+        TreeTypeImplication
+} TreeType;
 
 
-typedef struct Grammar Grammar;
+typedef struct Tree Tree;
 
-struct Grammar {
-        Grammar *left;
-        Grammar *right;
-        GrammarType type;
+struct Tree {
+        Tree *left;
+        Tree *right;
+        TreeType type;
 };
 
 
-Grammar *grammarConstruct(GrammarType, Grammar *, Grammar *);
-void grammarDeconstruct(Grammar *);
+Tree *treeConstruct(TreeType, Tree *, Tree *);
+void treeDeconstruct(Tree *);
 
 
-#define Proposition(l) grammarConstruct(GrammarTypeProposition, (Grammar *) l, NULL)
-#define Conjunction(l, r) grammarConstruct(GrammarTypeConjunction, l, r)
-#define Disjunction(l, r) grammarConstruct(GrammarTypeDisjunction, l, r)
-#define Implication(l, r) grammarConstruct(GrammarTypeImplication, l, r)
+#define Proposition(l) treeConstruct( \
+        TreeTypeProposition, (Tree *) l, NULL)
+
+#define Conjunction(l, r) treeConstruct( \
+        TreeTypeConjunction, l, r)
+
+#define Disjunction(l, r) treeConstruct( \
+        TreeTypeDisjunction, l, r)
+
+#define Implication(l, r) treeConstruct( \
+        TreeTypeImplication, l, r)
+
+#define Parse(l, r) treeConstruct( \
+        TreeTypeProposition, l, r)
