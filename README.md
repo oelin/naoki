@@ -44,17 +44,10 @@ $ naoki grammar.txt
 
 Congratulations, you now have a parser 🥳.
 
-```sh
-generated/
-generated/lib.h
-generated/grammar.h
-```
-
 ```c
-// generated/grammar.h
+// grammar.h
 
-#pragma once
-#include "lib.h"
+...
 
 // Variables.
 
@@ -109,7 +102,7 @@ Production(Expression, Or(
 Try it out on some strings.
 
 ```c
-#include "generated/grammar.h"
+#include "grammar.h"
 
 parse(Expression, "hello world"); // Returns `NULL` as "hello world" is not an `Expression`.
 
