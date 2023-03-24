@@ -1,26 +1,23 @@
-#include "grammar.h"
+#include "tree.h"
 #include <stdlib.h>
 
 
-Grammar *grammarConstruct(
-        GrammarType type,
-        Grammar *left,
-        Grammar *right
+Tree *treeConstruct(
+        TreeType type,
+        Tree *left,
+        Tree *right
 ) {
-        Grammar *grammar = (Grammar *) calloc(1, sizeof(Grammar));
+        Tree *tree = (Tree *) calloc(1, sizeof(Tree));
 
-        grammar->type = type;
-        grammar->left = left;
-        grammar->right = right;
+        tree->type = type;
+        tree->left = left;
+        tree->right = right;
 
-        return grammar;
+        return tree;
 }
 
 
-void grammarDeconstruct(Grammar *grammar) {
-
-        if (grammar->left) grammarDeconstruct(grammar->left);
-        if (grammar->right) grammarDeconstruct(grammar->right);
-
-        free(grammar);
+void treeDeconstruct(Tree *tree) {
+        if (tree->left) treeDeconstruct(tree->left);
+        if (tree->right) treeDeconstruct(tree->right);
 }
