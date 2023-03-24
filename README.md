@@ -1,29 +1,59 @@
-# Limbo
+# Naoki
 
-A parser generator for C.
+An elegant parser generator for C. WIP.
+
+
+## Installation
+
+```
+npm i -g naoki
+```
+
+
+## Usage
+
+```
+naoki path/to/grammar.txt
+```
 
 
 ## Example
 
-Context-free grammar for propositional logic formulas.
+A grammar for propositional logic.
 
 ```py
-Proposition      = "[A-Z]"
-UnaryOperator    = "¬"
-BinaryOperator   = "^"
+# logic.txt
+
+Proposition      > "[A-Z]"
+UnaryOperator    > "¬"
+BinaryOperator   > "^"
                  | "v"
                  | ">"
-UnaryExpression  = UnaryOperator Expression
-BinaryExpression = "(" Expression BinaryOperator Expression ")"
-Expression       = Proposition
+UnaryExpression  > UnaryOperator Expression
+BinaryExpression > "(" Expression BinaryOperator Expression ")"
+Expression       > Proposition
                  | UnaryExpression
                  | BinaryExpression
 ```
 
-Generated parser code.
+Compile the grammar with Naoki.
+
+```sh
+$ naoki logic.txt
+```
+
+Generated parser.
+
+```sh
+generated/
+generated/lib.h
+generated/grammar.h
+```
 
 ```c
-#include "limbo.h"
+// generated/grammar.h
+
+#include "lib.h"
 
 // Variables.
 
@@ -73,4 +103,14 @@ Production(Expression, Or(
     BinaryExpression
   )
 ));
+```
+
+The parser can then be used via the `parse` macro.
+
+```c
+#include "generated/grammar.h"
+
+parse(Expression, "hello world"); // Returns `NULL` as "hello world" is not an `Expression`.
+
+parse(Expression, "(AvB)>C");     // Returns the output of `Expression`.
 ```
