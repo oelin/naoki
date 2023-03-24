@@ -64,7 +64,7 @@ Production(Proposition, Match("[A-Z"));
 Production(UnaryOperator, Match("¬"));
 
 Production(BinaryOperator, Or(
-  Match("^"),
+  Match("\\^"),
   Or(
     Match("v"),
     Match(">")
@@ -84,7 +84,7 @@ Production(BinaryExpression, And(
       BinaryOperator,
       And(
         Expression,
-        Match(")")
+        Match("\\)")
       )
     )
   )
