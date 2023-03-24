@@ -22,7 +22,7 @@ naoki path/to/grammar.txt
 Define a grammar.
 
 ```py
-# logic.txt
+# grammar.txt
 
 Proposition      > "[A-Z]"
 UnaryOperator    > "¬"
@@ -39,7 +39,7 @@ Expression       > Proposition
 Compile it.
 
 ```sh
-$ naoki logic.txt
+$ naoki grammar.txt
 ```
 
 Congratulations, you now have a parser 🥳.
