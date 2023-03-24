@@ -21,14 +21,8 @@ struct Tree {
 };
 
 
-Tree *treeConstruct(TreeType, Tree *, Tree *);
-void treeDeconstruct(Tree *);
-
-
-#define Parse(l, r) treeConstruct( \
-        TreeTypeProposition, (Tree *) l, r)
-
-#define Proposition(l) Parse(l, NULL)
+#define Proposition(l) treeConstruct( \
+        TreeTypeConjunction, l, NULL)
 
 #define Conjunction(l, r) treeConstruct( \
         TreeTypeConjunction, l, r)
