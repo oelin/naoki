@@ -106,5 +106,5 @@ Try it out on some strings.
 
 parse(Expression, "hello world"); // Returns `NULL` as "hello world" is not an `Expression`.
 
-parse(Expression, "(AvB)>C");     // Returns the output of `Expression`.
+parse(Expression, "((AvB)^C)");     // Returns the output of `Expression`.
 ```
