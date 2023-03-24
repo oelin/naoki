@@ -99,7 +99,7 @@ Production(Expression, Or(
 ));
 ```
 
-Try it out on some strings.
+Try it on some strings.
 
 ```c
 #include "grammar.h"
