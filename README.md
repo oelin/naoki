@@ -73,7 +73,7 @@ Production(BinaryOperator, Or(
 
 Production(UnaryExpression, And(
   UnaryOperator,
-  Expression,
+  Expression
 ));
 
 Production(BinaryExpression, And(
