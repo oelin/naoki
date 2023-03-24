@@ -22,8 +22,10 @@ Tree *treeConstruct(TreeType, Tree *, Tree *);
 void treeDeconstruct(Tree *);
 
 
-#define Proposition(l) treeConstruct( \
-        TreeTypeProposition, (Tree *) l, NULL)
+#define Parse(l, r) treeConstruct( \
+        TreeTypeProposition, (Tree *) l, r)
+
+#define Proposition(l) Parse(l, NULL)
 
 #define Conjunction(l, r) treeConstruct( \
         TreeTypeConjunction, l, r)
@@ -34,5 +36,3 @@ void treeDeconstruct(Tree *);
 #define Implication(l, r) treeConstruct( \
         TreeTypeImplication, l, r)
 
-#define Parse(l, r) treeConstruct( \
-        TreeTypeProposition, l, r)
